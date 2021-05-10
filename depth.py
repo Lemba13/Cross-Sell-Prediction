@@ -97,13 +97,10 @@ for train, test in sss.split(X, y):
     X_train, X_test = X.iloc[train], X.iloc[test]
     y_train, y_test = y.iloc[train], y.iloc[test]
 
-t1=time.time()
 sm_tree_depths = range(1, 30)
 sm_cv_scores_mean, sm_cv_scores_std, sm_accuracy_scores = run_cross_validation_on_trees(
     X_train, y_train, sm_tree_depths)
-t2=time.time()
 
-ti(t1,t2)
 depth0 = sm_cv_scores_mean.argmax()+1
 
 print(sm_cv_scores_mean)
